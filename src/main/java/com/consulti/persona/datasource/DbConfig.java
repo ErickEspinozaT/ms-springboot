@@ -24,6 +24,18 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 public class DbConfig {
 
+  @Value("${db.username}")
+  private String username;
+
+  @Value("${db.password}")
+  private String password;
+
+  @Value("${db.host}")
+  private String host;
+
+  @Value("${db.name}")
+  private String bdName;
+
   @Value("${spring.datasource.hikari.idle-timeout}")
   private int idleTimeout;
 
@@ -58,6 +70,10 @@ public class DbConfig {
     /*
      * Set: - poolname - username - password - jdbc
      */
+    dataSourceConfig.setUsername(username);
+    dataSourceConfig.setPassword(password);
+    dataSourceConfig.setPoolName("ms-persona");
+    dataSourceConfig.setJdbcUrl("jdbc:postgresql://" + host + "/" + bdName);
     dataSourceConfig.setConnectionTimeout(connectionTimeout);
     dataSourceConfig.setIdleTimeout(idleTimeout);
     dataSourceConfig.setMaximumPoolSize(maxPoolSize);

@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "PersonaEMFactory", transactionManagerRef = "PersonaTM", basePackages = {
-                "com.consulti.persona.repository" })
+    "com.consulti.persona.repository" })
 @EntityScan(basePackages = { "com.consulti.persona.entity" })
 public class DatasourceConfig {
 }
