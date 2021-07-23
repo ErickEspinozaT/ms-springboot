@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  consulti-ms-persona:
+    image: 'consulti-ms-persona:1.0'
+    hostname: 'consulti-ms-persona'
+    restart: 'always'
+    ports:
+      - '5000:5000'

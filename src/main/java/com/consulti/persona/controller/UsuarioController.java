@@ -38,7 +38,6 @@ public class UsuarioController {
     log.info("Mensaje de prueba, {}, {}", PersonaConstants.PERSONA_URL, PersonaConstants.LISTA_POR);
     response.setData(usuarioService.listarPor(request));
     return response;
-
   }
 
   @PostMapping(path = { PersonaConstants.GUARDAR })
@@ -46,6 +45,22 @@ public class UsuarioController {
     GenericBasicResponse<Usuario> response = new GenericBasicResponse<>();
     log.info("Mensaje de prueba, {}, {}", PersonaConstants.PERSONA_URL, PersonaConstants.GUARDAR);
     response.setData(usuarioService.guardar(request));
+    return response;
+  }
+
+  @PostMapping(path = { PersonaConstants.ACTUALIZAR })
+  public GenericBasicResponse<Usuario> actualizar(@RequestBody Usuario request) throws Exception {
+    GenericBasicResponse<Usuario> response = new GenericBasicResponse<>();
+    log.info("Mensaje de prueba, {}, {}", PersonaConstants.PERSONA_URL, PersonaConstants.ACTUALIZAR);
+    response.setData(usuarioService.actualizar(request));
+    return response;
+  }
+
+  @PostMapping(path = { PersonaConstants.ELIMINAR })
+  public GenericBasicResponse<Boolean> eliminar(@RequestBody Usuario request) throws Exception {
+    GenericBasicResponse<Boolean> response = new GenericBasicResponse<>();
+    log.info("Mensaje de prueba, {}, {}", PersonaConstants.PERSONA_URL, PersonaConstants.ELIMINAR);
+    response.setData(usuarioService.eliminar(request));
     return response;
   }
 }

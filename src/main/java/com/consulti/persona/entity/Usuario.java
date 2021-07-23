@@ -42,6 +42,10 @@ public class Usuario {
   @Column(name = "fecha_creacion")
   private Date fechaCreacion;
 
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = PersonaConstants.TIMEZONE)
+  @Column(name = "fecha_modificacion")
+  private Date fechaModificacion;
+
   @Column(name = "estado")
   private String estado;
 

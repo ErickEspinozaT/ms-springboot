@@ -14,4 +14,8 @@ public interface UsuarioService {
   List<Usuario> listarPor(Usuario request) throws GenericException;
 
   Usuario guardar(Usuario request) throws GenericException;
+
+  Usuario actualizar(Usuario request) throws GenericException;
+
+  Boolean eliminar(Usuario request) throws GenericException;
 }

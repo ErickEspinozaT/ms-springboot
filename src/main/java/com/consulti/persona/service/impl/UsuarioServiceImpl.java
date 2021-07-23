@@ -63,4 +63,32 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
     return response;
   }
+
+  @Override
+  public Usuario actualizar(Usuario request) throws GenericException {
+    Usuario response = new Usuario();
+    try {
+      request.setFechaModificacion(new Date());
+      request = usuarioValidations.validarActualizarUsuario(request);
+      response = usuarioRepo.save(request);
+    } catch (GenericException e) {
+      throw new GenericException(e.getMessageError(), e.getCodeError());
+    }
+    return response;
+  }
+
+  @Override
+  public Boolean eliminar(Usuario request) throws GenericException {
+    Boolean response = false;
+    try {
+      request.setFechaModificacion(new Date());
+      request.setEstado(EstadosEnum.ELIMINADO.getValorr());
+      request = usuarioValidations.validarActualizarUsuario(request);
+      usuarioRepo.save(request);
+      response = true;
+    } catch (GenericException e) {
+      throw new GenericException(e.getMessageError(), e.getCodeError());
+    }
+    return response;
+  }
 }
